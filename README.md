@@ -36,11 +36,11 @@ To get started developing right away:
     │    ├──main #folder that contains components used in main page
     │    │  ├──Shelf.js #Defines Shelf that contains a shelf-heading and a list of books
     │    │  ├──Book.js #Defines Book that defines a book having a thumbnail, title and name of authors
-    │    │  ├──BookShelfChanger.js #Defines BookShelfChanger that contains a list of options to move books from one folder to another or to none.
+    │    │  └──BookShelfChanger.js #Defines BookShelfChanger that contains a list of options to move books from one folder to another or to none.
     │    ├──search #folder that contains components used in search page
     │    │  ├──SearchPage #Defines a page containing search bar and space for books
     │    │  ├──SearchBar #Defines a input field to search books
-    │    │  ├──SearchResultSpace #Defines a space for books which is retrieved after searching is completed
+    │    │  └──SearchResultSpace #Defines a space for books which is retrieved after searching is completed
     ├── App.css # Styles for the app.
     ├── App.js # This is the root of the app.
     ├── App.test.js # Used for testing.
