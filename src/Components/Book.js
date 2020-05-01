@@ -2,7 +2,7 @@ import React from "react";
 import BookShelfChanger from "./BookShelfChanger";
 
 function Book(props) {
-  const { imageLinks, title, authors, id } = props.book;
+  const { imageLinks, title, authors, id , shelf} = props.book;
   return (
     <div className="book">
       <div className="book-top">
@@ -18,7 +18,7 @@ function Book(props) {
               : { width: 128, height: 193 }
           }
         />
-        <BookShelfChanger id={id} handlebookmove={props.handlebookmove} />
+        <BookShelfChanger id={id} handlebookmove={props.handlebookmove} bookShelf={shelf} />
       </div>
       <div className="book-title">{title}</div>
       {authors

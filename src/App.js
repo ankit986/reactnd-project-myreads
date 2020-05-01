@@ -1,11 +1,12 @@
 import React from "react";
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
-import { Link, Route } from "react-router-dom";
+import { Link, Route , Switch} from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Shelf from "./Components/Shelf";
 import SearchPage from "./Components/SearchPage";
+import NoMatch from "./Components/NotFoundPage";
 
 class BooksApp extends React.Component {
   state = {
@@ -13,6 +14,7 @@ class BooksApp extends React.Component {
       currentlyReading: [],
       read: [],
       wantToRead: [],
+      none:[]
     },
   };
 
@@ -36,7 +38,7 @@ class BooksApp extends React.Component {
         currentBook.title = book.title;
         currentBook.authors = book.authors;
         currentBook.imageLinks = book.imageLinks;
-
+        currentBook.shelf = book.shelf
         shelf[thisShelf].push(currentBook);
 
         this.updateState(shelf);
@@ -61,9 +63,13 @@ class BooksApp extends React.Component {
       .catch((err) => {});
   };
 
+
+
+
   render() {
     return (
       <div className="app">
+        <Switch>
         <Route
           exact
           path="/"
@@ -100,10 +106,12 @@ class BooksApp extends React.Component {
           path="/search"
           render={() => (
             <div className="search-books">
-              <SearchPage handlebookmove={this.handlebookmove} />
+              <SearchPage handlebookmove={this.handlebookmove} shelf={this.state.shelf} />
             </div>
           )}
-        />
+          />
+          <Route component={NoMatch}/>
+          </Switch>
       </div>
     );
   }

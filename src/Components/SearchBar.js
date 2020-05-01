@@ -12,7 +12,6 @@ function SearchBar(props) {
           type="text"
           placeholder="Search by title or author"
           onChange={props.handleSearch}
-          handlebookmove={props.handlebookmove}
         />
       </div>
     </div>
